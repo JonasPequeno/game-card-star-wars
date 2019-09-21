@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Filmes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscrean>
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center col-6 *ngFor="let filme of filmes">
+        <ion-card>
+          <img src="" />
+          <ion-card-header>
+
+            <ion-card-title
+            ><img src="http://br.web.img3.acsta.net/c_215_290/medias/nmedia/18/91/98/26/20172772.jpg"
+                alt=""></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{filme.title}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- 
+<ion-card>
+    <img src="" alt="">
+    <ion-card-header align-self-cente>
+      <img
+        src="https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ccb9e2d4c32c40cfa4790a07581d9e33_Large.png"
+        alt="">
+      <ion-card-title>{{ filme.title }} </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card> -->
