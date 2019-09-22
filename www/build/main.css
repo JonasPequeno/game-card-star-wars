@@ -25706,10 +25706,16 @@ ion-card ion-card-content {
   text-align: center;
 }
 
+ion-card ion-card-header {
+  white-space: pre-line;
+  text-align: center;
+}
+
 ion-card {
   width: auto;
   height: 300px;
   border-radius: 100px;
+  background-color: aqua;
 }
 
 /* page-home {

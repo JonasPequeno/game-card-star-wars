@@ -9,16 +9,12 @@
     <ion-row>
       <ion-col align-self-center col-6 *ngFor="let filme of filmes">
         <ion-card>
-          <img src="" />
+          <img src="http://br.web.img3.acsta.net/c_215_290/medias/nmedia/18/91/98/26/20172772.jpg" alt="">
           <ion-card-header>
-
-            <ion-card-title
-            ><img src="http://br.web.img3.acsta.net/c_215_290/medias/nmedia/18/91/98/26/20172772.jpg"
-                alt=""></ion-card-title>
+          {{filme.title}}        
           </ion-card-header>
-          <ion-card-content>
-            {{filme.title}}
-          </ion-card-content>
+          <!-- <ion-card-content>
+          </ion-card-content> -->
         </ion-card>
       </ion-col>
     </ion-row>

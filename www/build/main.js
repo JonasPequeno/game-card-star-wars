@@ -63,7 +63,7 @@ var TabsPage = /** @class */ (function () {
         this.tab3Root = __WEBPACK_IMPORTED_MODULE_2__contact_contact__["a" /* ContactPage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="film"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/tabs/tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Filmes" tabIcon="film"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Personagens" tabIcon="contacts"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Planetas" tabIcon="planet"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/tabs/tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -98,7 +98,7 @@ var AboutPage = /** @class */ (function () {
     }
     AboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-about',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/about/about.html"*/
+            selector: 'page-about',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/about/about.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], AboutPage);
@@ -116,6 +116,8 @@ var AboutPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_swapi__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_swapi___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_swapi__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -127,17 +129,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ContactPage = /** @class */ (function () {
-    function ContactPage(navCtrl) {
+    function ContactPage(navCtrl, swService) {
         this.navCtrl = navCtrl;
+        this.swService = swService;
+        this.personagens = [];
     }
+    ContactPage.prototype.ngOnInit = function () {
+        this.getPersonagens();
+    };
+    ContactPage.prototype.getPersonagens = function () {
+        var _this = this;
+        this.swService.getPeople().subscribe(function (res) {
+            _this.personagens = res.results;
+            console.log(_this.personagens);
+        }, function (err) {
+            console.log(err);
+        });
+    };
     ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-contact',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n \n</ion-content>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/contact/contact.html"*/
+            selector: 'page-contact',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Personagens\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content fullscrean>\n    <ion-grid>\n      <ion-row>\n        <ion-col align-self-center col-6 *ngFor="let personagem of personagens">\n          <ion-card>\n            <img src="../../assets/imgs/logo.png" alt="">\n            <ion-card-header>\n                {{personagem.name}}\n            </ion-card-header>\n            <!-- <ion-card-content>\n            </ion-card-content> -->\n          </ion-card>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-content>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/contact/contact.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_swapi__["SwapiService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_swapi__["SwapiService"]) === "function" && _b || Object])
     ], ContactPage);
     return ContactPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=contact.js.map
@@ -175,7 +193,6 @@ var HomePage = /** @class */ (function () {
     function HomePage(navCtrl, swService) {
         this.navCtrl = navCtrl;
         this.swService = swService;
-        this.personagens = [];
         this.filmes = [];
     }
     HomePage.prototype.ngOnInit = function () {
@@ -202,7 +219,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Filmes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content fullscrean>\n  <ion-grid>\n    <ion-row>\n      <ion-col align-self-center col-6 *ngFor="let filme of filmes">\n        <ion-card>\n          <img src="" />\n          <ion-card-header>\n\n            <ion-card-title\n            ><img src="http://br.web.img3.acsta.net/c_215_290/medias/nmedia/18/91/98/26/20172772.jpg"\n                alt=""></ion-card-title>\n          </ion-card-header>\n          <ion-card-content>\n            {{filme.title}}\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n<!-- \n<ion-card>\n    <img src="" alt="">\n    <ion-card-header align-self-cente>\n      <img\n        src="https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ccb9e2d4c32c40cfa4790a07581d9e33_Large.png"\n        alt="">\n      <ion-card-title>{{ filme.title }} </ion-card-title>\n    </ion-card-header>\n\n    <ion-card-content>\n    </ion-card-content>\n  </ion-card> -->'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Filmes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content fullscrean>\n  <ion-grid>\n    <ion-row>\n      <ion-col align-self-center col-6 *ngFor="let filme of filmes">\n        <ion-card>\n          <img src="http://br.web.img3.acsta.net/c_215_290/medias/nmedia/18/91/98/26/20172772.jpg" alt="">\n          <ion-card-header>\n          {{filme.title}}        \n          </ion-card-header>\n          <!-- <ion-card-content>\n          </ion-card-content> -->\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n<!-- \n<ion-card>\n    <img src="" alt="">\n    <ion-card-header align-self-cente>\n      <img\n        src="https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ccb9e2d4c32c40cfa4790a07581d9e33_Large.png"\n        alt="">\n      <ion-card-title>{{ filme.title }} </ion-card-title>\n    </ion-card-header>\n\n    <ion-card-content>\n    </ion-card-content>\n  </ion-card> -->'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/home/home.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2_ng2_swapi__["SwapiService"]]
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_swapi__["SwapiService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_swapi__["SwapiService"]) === "function" && _b || Object])
@@ -349,7 +366,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/game-card-star-wars/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);

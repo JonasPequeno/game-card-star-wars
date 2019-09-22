@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SwapiService } from 'ng2-swapi';
-//import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map'
 import { map } from 'rxjs/operators';
 import 'rxjs/Rx';
 
@@ -12,8 +12,6 @@ import 'rxjs/Rx';
   providers: [SwapiService]
 })
 export class HomePage implements OnInit {
-
-  public personagens = [];
   public filmes = [];
 
   constructor(
@@ -27,15 +25,15 @@ export class HomePage implements OnInit {
   }
 
 
-/*   getPersonagens() {
-    this.swService.getPeople().subscribe(res => {
-      this.personagens = res.results;
-      console.log(this.personagens);
-    }, err => {
-      console.log(err);
-    });
-  }
- */
+  /*   getPersonagens() {
+      this.swService.getPeople().subscribe(res => {
+        this.personagens = res.results;
+        console.log(this.personagens);
+      }, err => {
+        console.log(err);
+      });
+    }
+   */
 
   getFilmes() {
     this.swService.getFilms().subscribe(res => {
