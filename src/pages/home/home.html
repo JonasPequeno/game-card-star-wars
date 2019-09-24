@@ -1,35 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Filmes</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content fullscrean>
+<ion-content fullscrem>
   <ion-grid>
     <ion-row>
-      <ion-col align-self-center col-6 *ngFor="let filme of filmes">
+      <ion-col col-6 *ngFor="let filme of filmes">
         <ion-card>
-          <img src="http://br.web.img3.acsta.net/c_215_290/medias/nmedia/18/91/98/26/20172772.jpg" alt="">
-          <ion-card-header>
-          {{filme.title}}        
+          <img src="https://i.pinimg.com/originals/a2/34/48/a23448fa231a96176ad234b2a4577a9b.jpg" alt="">
+          <ion-card-header no-padding>
+            <ion-card-title> {{filme.title}} </ion-card-title>
           </ion-card-header>
-          <!-- <ion-card-content>
-          </ion-card-content> -->
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-<!-- 
-<ion-card>
-    <img src="" alt="">
-    <ion-card-header align-self-cente>
-      <img
-        src="https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ccb9e2d4c32c40cfa4790a07581d9e33_Large.png"
-        alt="">
-      <ion-card-title>{{ filme.title }} </ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-    </ion-card-content>
-  </ion-card> -->
