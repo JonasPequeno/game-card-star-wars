@@ -19,10 +19,10 @@ export class ModalFilmePage implements OnInit {
 
   ngOnInit(): void {
     this.filme = this.navParams.get('filme');
-
-    console.log(this.filme);
+    let data = new Date(this.filme.created)
+    this.filme.created = ("0" + data.getDate()).substr(-2) + "/"
+      + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
   }
-
 
   dismiss() {
     this.viewCtrl.dismiss();

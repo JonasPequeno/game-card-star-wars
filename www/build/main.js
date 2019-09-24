@@ -518,14 +518,16 @@ var ModalFilmePage = /** @class */ (function () {
     };
     ModalFilmePage.prototype.ngOnInit = function () {
         this.filme = this.navParams.get('filme');
-        console.log(this.filme);
+        var data = new Date(this.filme.created);
+        this.filme.created = ("0" + data.getDate()).substr(-2) + "/"
+            + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
     };
     ModalFilmePage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
     ModalFilmePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-modal-filme',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/modal-filme/modal-filme.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Description\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Fechar</span>\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-note item-end>\n        {{filme.title}}\n      </ion-note>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/modal-filme/modal-filme.html"*/,
+            selector: 'page-modal-filme',template:/*ion-inline-start:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/modal-filme/modal-filme.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      {{filme.title}}\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Fechar</span>\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-content class="background">\n    <ion-card>\n      <img src="../../assets/imgs/logo.png" />\n      <ion-card-content>\n\n        <ion-item>          \n          <ion-label>Data : {{filme.created}} </ion-label>\n        </ion-item>\n\n        <ion-item>          \n          <ion-label>Diretor : {{filme.director}} </ion-label>\n        </ion-item>\n\n        <ion-item>        \n          <ion-label>Episódio : {{filme.episode_id}} </ion-label>\n        </ion-item>\n\n        <ion-item>\n          Abertura : <p>{{filme.opening_crawl}}</p>\n        </ion-item>\n\n      </ion-card-content>\n    </ion-card>\n  </ion-content>'/*ion-inline-end:"/home/jonas/Documentos/Documentos/RedeNet/desafioVagaMobile/novo/game-card-star-wars/src/pages/modal-filme/modal-filme.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]) === "function" && _c || Object])
     ], ModalFilmePage);
