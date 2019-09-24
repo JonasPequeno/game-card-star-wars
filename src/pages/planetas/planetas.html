@@ -10,11 +10,11 @@
 <ion-content fullscrem>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 *ngFor="let planetas of planetas">
+      <ion-col col-6 *ngFor="let planeta of planetas" (click)="detalhes(planeta)">
         <ion-card>
           <img src="https://i.pinimg.com/originals/a2/34/48/a23448fa231a96176ad234b2a4577a9b.jpg" alt="">
           <ion-card-header no-padding>
-            <ion-card-title> {{planetas.name}} </ion-card-title>
+            <ion-card-title> {{planeta.name}} </ion-card-title>
           </ion-card-header>
         </ion-card>
       </ion-col>

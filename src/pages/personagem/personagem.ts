@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SwapiService } from 'ng2-swapi';
 
 import { LoadingController } from 'ionic-angular';
+
+import { DetalhePersonagemPage } from '../detalhe-personagem/detalhe-personagem'
 
 @IonicPage()
 @Component({
@@ -19,7 +21,7 @@ export class PersonagemPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     public swService: SwapiService,
-    public loadingController: LoadingController) { }
+    public loadingController: LoadingController, public modalController: ModalController) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonagemPage');
@@ -51,6 +53,11 @@ export class PersonagemPage implements OnInit {
 
     });
     return this.loading.present();
+  }
+
+  detalhes(personagem: any) {
+    const modal = this.modalController.create(DetalhePersonagemPage, { personagem: personagem });
+    modal.present();
   }
 
 }

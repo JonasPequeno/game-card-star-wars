@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{personagem.name}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Fechar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content class="background">
+    <ion-card>
+      <img src="../../assets/imgs/logo.png" />
+      <ion-card-content>
+
+        <ion-item>
+          Nome : <p> {{personagem.name}} </p>
+        </ion-item>
+
+        <ion-item>
+          Nascimento : <p> {{personagem.birth_year}} </p>
+        </ion-item>
+
+        <ion-item>
+          Massa : <p> {{personagem.mass}} </p>
+        </ion-item>
+
+        <ion-item>
+          Cor : <p> {{personagem.skin_color}} </p>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

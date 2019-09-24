@@ -10,7 +10,8 @@ export class ModalFilmePage implements OnInit {
 
   public filme: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {

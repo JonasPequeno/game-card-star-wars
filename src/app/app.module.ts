@@ -9,6 +9,9 @@ import { PersonagemPage } from '../pages/personagem/personagem'
 import { PlanetasPage } from '../pages/planetas/planetas';
 import { ModalFilmePage } from '../pages/modal-filme/modal-filme';
 
+import { DetalhePersonagemPage } from '../pages/detalhe-personagem/detalhe-personagem'
+import { DetalhePlanetaPage } from '../pages/detalhe-planeta/detalhe-planeta';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -23,7 +26,9 @@ import { HttpModule } from '@angular/http';
     ListPage,
     PersonagemPage,
     PlanetasPage,
-    ModalFilmePage
+    ModalFilmePage,
+    DetalhePersonagemPage,
+    DetalhePlanetaPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,9 @@ import { HttpModule } from '@angular/http';
     ListPage,
     PersonagemPage,
     PlanetasPage,
-    ModalFilmePage
+    ModalFilmePage,
+    DetalhePersonagemPage,
+    DetalhePlanetaPage
   ],
   providers: [
     StatusBar,

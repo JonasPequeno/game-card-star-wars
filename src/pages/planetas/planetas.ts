@@ -1,8 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SwapiService } from 'ng2-swapi';
 
 import { LoadingController } from 'ionic-angular';
+
+import { DetalhePlanetaPage } from '../detalhe-planeta/detalhe-planeta'
+import { ModalFilmePage } from '../modal-filme/modal-filme'
+
+
+import 'rxjs/add/operator/map'
+import 'rxjs/Rx';
 
 @IonicPage()
 @Component({
@@ -19,7 +26,7 @@ export class PlanetasPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     public swService: SwapiService,
-    public loadingController: LoadingController) { }
+    public loadingController: LoadingController, public modalController: ModalController) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonagemPage');
@@ -31,6 +38,7 @@ export class PlanetasPage implements OnInit {
 
 
   getPlanetas() {
+    console.log('asdasd')
     this.swService.getPlanets().subscribe(res => {
       this.planetas = res.results;
       console.log(this.planetas);
@@ -51,6 +59,12 @@ export class PlanetasPage implements OnInit {
 
     });
     return this.loading.present();
+  }
+
+  detalhes(planeta: any) {
+    console.log(planeta);
+    const modal = this.modalController.create(DetalhePlanetaPage, { planeta: planeta });
+    modal.present();
   }
 
 }
