@@ -25687,3 +25687,23 @@ page-home ion-content {
   background-image: url("../../assets/imgs/fundo.gif");
   background-position: center;
 }
+
+page-personagem ion-card ion-card-header {
+  white-space: pre-line;
+  text-align: center;
+}
+
+page-personagem ion-content {
+  background-image: url("../../assets/imgs/fundo.gif");
+  background-position: center;
+}
+
+ion-card ion-card-header {
+  white-space: pre-line;
+  text-align: center;
+}
+
+ion-content {
+  background-image: url("../../assets/imgs/fundo.gif");
+  background-position: center;
+}

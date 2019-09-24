@@ -1,18 +1,23 @@
-<!--
-  Generated template for the PersonagemPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>personagem</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Personagens</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content fullscrem>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let personagem of personagens">
+        <ion-card>
+          <img src="https://i.pinimg.com/originals/a2/34/48/a23448fa231a96176ad234b2a4577a9b.jpg" alt="">
+          <ion-card-header no-padding>
+            <ion-card-title> {{personagem.name}} </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

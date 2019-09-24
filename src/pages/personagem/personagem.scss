@@ -1,3 +1,10 @@
 page-personagem {
-
+  ion-card ion-card-header {
+    white-space: pre-line;
+    text-align: center;
+  }
+  ion-content {
+    background-image: url("../../assets/imgs/fundo.gif");
+    background-position: center;
+  }
 }
